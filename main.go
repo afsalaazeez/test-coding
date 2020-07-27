@@ -63,4 +63,18 @@ func main() {
 	fmt.Printf(" value = %d is %v\n", val, myfunc.IsPrimeIter(1))
 	fmt.Printf(" value = %d is %v\n", val, myfunc.IsPrimeRecur(1))
 
+	var m = myfunc.OMapConstr()
+	fmt.Println("\n==OrderMap structure and functions")
+	m.Show()
+	m.Add(2, 20)
+	fmt.Println(m.Get(2))
+	m.Add(3, 30)
+	m.Add(4, 40)
+	fmt.Println("Values:")
+	m.Show()
+	m.Delete(2)
+	fmt.Println("Number of elements in the map : ", m.Len())
+	key := 2
+	value, ok := m.Get(2)
+	fmt.Println(" key :", key, " value: ", value, " Present?", ok)
 }
