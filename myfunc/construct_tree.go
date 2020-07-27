@@ -10,7 +10,7 @@ type Node struct {
 	left, right *Node
 }
 
-func buildUtil(in []int, post []int, inStrt int, inEnd int, pIndex *int) *Node {
+func levelBuild(in []int, post []int, inStrt int, inEnd int, pIndex *int) *Node {
 	if inStrt > inEnd {
 		return nil
 	}
@@ -20,8 +20,8 @@ func buildUtil(in []int, post []int, inStrt int, inEnd int, pIndex *int) *Node {
 		return node
 	}
 	var iIndex int = search(in, inStrt, inEnd, node.data)
-	node.right = buildUtil(in, post, iIndex+1, inEnd, pIndex)
-	node.left = buildUtil(in, post, inStrt, iIndex-1, pIndex)
+	node.right = levelBuild(in, post, iIndex+1, inEnd, pIndex)
+	node.left = levelBuild(in, post, inStrt, iIndex-1, pIndex)
 
 	return node
 }
@@ -29,7 +29,7 @@ func buildUtil(in []int, post []int, inStrt int, inEnd int, pIndex *int) *Node {
 // CreateTree comment
 func CreateTree(in []int, post []int) *Node {
 	var pIndex int = len(post) - 1
-	return buildUtil(in, post, 0, pIndex, &pIndex)
+	return levelBuild(in, post, 0, pIndex, &pIndex)
 }
 
 func search(arr []int, strt int, end int, value int) int {
@@ -53,7 +53,7 @@ func PreOrder(node *Node) {
 	if node == nil {
 		return
 	}
-	fmt.Printf("%d ", node.data)
+	fmt.Printf(" %d", node.data)
 	PreOrder(node.left)
 	PreOrder(node.right)
 }
