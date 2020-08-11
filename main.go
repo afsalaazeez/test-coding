@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"testcoding/myfunc"
+	"github.com/afsalaazeez/test-coding/myfunc"
 )
 
 func main() {
