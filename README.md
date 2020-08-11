@@ -2,7 +2,7 @@
 
 ### Get the code
 
-go get github.com/afsalaazeez/test-coding
+    go get github.com/afsalaazeez/test-coding
 
 ### 1. Given an array, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 
